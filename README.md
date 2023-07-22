@@ -1,27 +1,28 @@
-# React + TypeScript + Vite
+# Notion Clone | Vite + TipTap Editor + Material UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto de estudos desenvolvido em React utilizando TipTap editor e Material UI. O objetivo é desenvolver um editor de textos
+no estilo do Notion, porém não sendo 100% igual. Abaixo contém uma lista do que será desenvolvido em uma primeira versão, o que virá em seguida.
 
-Currently, two official plugins are available:
+-- English --
+This is a study case developed in Reac using TipTap editor and Material UI. The obejct is develop a text editor like Notion, perhaps not 100% equal.
+Below, you could find a list about all the features it's gonna be developed in this first verison and what's gonna come later.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Primeira Versão
 
-## Expanding the ESLint configuration
+1 - Autenticação com o Google
+2 - Editor de textos em que o usuário consiga escrever títulos e textos de tamanhos diversos e consiga formatá-los
+3 - Editor colaborativo (Mais pessoas consigam editar o mesmo texto)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+-- English --
+1 - Authentication with Google
+2 - An editor where users could write titles and texts with a lot of size options and where users could format those texts.
+3 - Colaborative Editor (More people could edit the same text)
 
-- Configure the top-level `parserOptions` property like this:
+## Segunda Versão
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+1 - Usuário consiga dar comandos por voz
+2 - Usuário consiga falar ao invés de ter que digitar
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+-- English --
+1 - Users could give voice commands
+2 - Users could speak instead of text.
