@@ -1,17 +1,33 @@
-import { Box, Button, ThemeProvider } from "@mui/material";
+import { Box, ThemeProvider } from "@mui/material";
 import { darkTheme, lightTheme } from "../Theme";
 import HomePage from "./homePage";
 import { RootState } from "../store/store";
 import { useDispatch, useSelector } from "react-redux";
-import { changeTheme } from "../store/slices/theme";
+import { removeDarkTheme, setDarkTheme } from "../store/slices/theme";
+import { useCallback, useEffect } from "react";
+import Menu from "../components/Menu/Menu";
 
 const RootPage = () => {
   const theme = useSelector((state: RootState) => state.theme.themeMode);
   const dispatch = useDispatch();
+  let getTheme = localStorage.getItem("dark-theme");
 
-  const onChangeThemeHandler = () => {
-    dispatch(changeTheme());
-  };
+  const onChangeThemeHandler = useCallback(() => {
+    if (getTheme) {
+      dispatch(removeDarkTheme());
+      localStorage.removeItem("dark-theme");
+    }
+    if (!getTheme) {
+      dispatch(setDarkTheme());
+      localStorage.setItem("dark-theme", "active");
+    }
+  }, [dispatch, getTheme]);
+
+  useEffect(() => {
+    if (getTheme) {
+      dispatch(setDarkTheme());
+    }
+  }, [dispatch, getTheme]);
 
   return (
     <ThemeProvider theme={theme ? darkTheme : lightTheme}>
@@ -21,9 +37,7 @@ const RootPage = () => {
           height: "100vh",
         })}
       >
-        <Button variant="contained" onClick={onChangeThemeHandler}>
-          Mudar tema
-        </Button>
+        <Menu onChangeTheme={onChangeThemeHandler} theme={theme} />
         <HomePage />
       </Box>
     </ThemeProvider>
