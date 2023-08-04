@@ -1,11 +1,11 @@
 import { Box, ThemeProvider } from "@mui/material";
 import { darkTheme, lightTheme } from "../Theme";
-import HomePage from "./homePage";
 import { RootState } from "../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { removeDarkTheme, setDarkTheme } from "../store/slices/theme";
 import { useCallback, useEffect } from "react";
 import Menu from "../components/Menu/Menu";
+import { Outlet } from "react-router-dom";
 
 const RootPage = () => {
   const theme = useSelector((state: RootState) => state.theme.themeMode);
@@ -39,7 +39,7 @@ const RootPage = () => {
       >
         <Menu onChangeTheme={onChangeThemeHandler} theme={theme} />
         <Box sx={{ marginLeft: 8 }}>
-          <HomePage />
+          <Outlet />
         </Box>
       </Box>
     </ThemeProvider>
