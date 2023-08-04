@@ -38,9 +38,7 @@ const RootPage = () => {
         })}
       >
         <Menu onChangeTheme={onChangeThemeHandler} theme={theme} />
-        <Box sx={{ marginLeft: 8 }}>
-          <Outlet />
-        </Box>
+        <Outlet />
       </Box>
     </ThemeProvider>
   );

@@ -23,6 +23,7 @@ const Menu = ({ onChangeTheme, theme }: IMenuProps) => {
         marginTop: 10,
         boxShadow: 4,
         p: 0.5,
+        zIndex: 1,
       })}
     >
       <Stack spacing={1}>
