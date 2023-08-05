@@ -6,6 +6,7 @@ import { removeDarkTheme, setDarkTheme } from "../store/slices/theme";
 import { useCallback, useEffect } from "react";
 import Menu from "../components/Menu/Menu";
 import { Outlet } from "react-router-dom";
+import Header from "../components/Header/Header";
 
 const RootPage = () => {
   const theme = useSelector((state: RootState) => state.theme.themeMode);
@@ -35,10 +36,14 @@ const RootPage = () => {
         sx={(theme) => ({
           backgroundColor: theme.palette.background.default,
           height: "100vh",
+          display: "flex",
         })}
       >
         <Menu onChangeTheme={onChangeThemeHandler} theme={theme} />
-        <Outlet />
+        <main style={{ width: "100%" }}>
+          <Header />
+          <Outlet />
+        </main>
       </Box>
     </ThemeProvider>
   );
