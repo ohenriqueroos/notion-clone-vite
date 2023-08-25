@@ -15,15 +15,15 @@ const ToggleMenu = ({
       size="small"
       sx={(theme) => ({
         boxShadow: 4,
-        backgroundColor: theme.palette.background.default,
+        backgroundColor: theme.palette.background.paper,
         "&:hover": {
-          backgroundColor: theme.palette.background.paper,
+          backgroundColor: theme.palette.background.default,
         },
       })}
       onClick={toggleMenu}
     >
-      {openMenu && <ArrowBackIosNewIcon fontSize="small" />}
-      {!openMenu && <ArrowForwardIosIcon fontSize="small" />}
+      {openMenu && <ArrowBackIosNewIcon fontSize="small" color="primary" />}
+      {!openMenu && <ArrowForwardIosIcon fontSize="small" color="primary" />}
     </IconButton>
   );
 };

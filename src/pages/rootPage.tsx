@@ -1,5 +1,5 @@
 import { Box, ThemeProvider } from "@mui/material";
-import { darkTheme, lightTheme } from "../Theme";
+import { dark, light } from "../Theme";
 import { RootState } from "../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { removeDarkTheme, setDarkTheme } from "../store/slices/theme";
@@ -13,16 +13,19 @@ const RootPage = () => {
   const dispatch = useDispatch();
   let getTheme = localStorage.getItem("dark-theme");
 
-  const onChangeThemeHandler = useCallback(() => {
-    if (getTheme) {
-      dispatch(removeDarkTheme());
-      localStorage.removeItem("dark-theme");
-    }
-    if (!getTheme) {
-      dispatch(setDarkTheme());
-      localStorage.setItem("dark-theme", "active");
-    }
-  }, [dispatch, getTheme]);
+  const onChangeThemeHandler = useCallback(
+    (value: boolean) => {
+      if (getTheme && !value) {
+        dispatch(removeDarkTheme());
+        localStorage.removeItem("dark-theme");
+      }
+      if (!getTheme && value) {
+        dispatch(setDarkTheme());
+        localStorage.setItem("dark-theme", "active");
+      }
+    },
+    [dispatch, getTheme]
+  );
 
   useEffect(() => {
     if (getTheme) {
@@ -31,7 +34,7 @@ const RootPage = () => {
   }, [dispatch, getTheme]);
 
   return (
-    <ThemeProvider theme={theme ? darkTheme : lightTheme}>
+    <ThemeProvider theme={theme ? dark : light}>
       <Box
         sx={(theme) => ({
           backgroundColor: theme.palette.background.default,
@@ -40,7 +43,7 @@ const RootPage = () => {
         })}
       >
         <Menu onChangeTheme={onChangeThemeHandler} theme={theme} />
-        <main style={{ width: "100%" }}>
+        <main style={{ width: "100%", position: "relative" }}>
           <Header />
           <Outlet />
         </main>
