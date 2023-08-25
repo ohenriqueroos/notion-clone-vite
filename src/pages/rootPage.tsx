@@ -43,7 +43,7 @@ const RootPage = () => {
         })}
       >
         <Menu onChangeTheme={onChangeThemeHandler} theme={theme} />
-        <main style={{ width: "100%", position: "relative" }}>
+        <main style={{ width: "100%", marginLeft: 20, position: "relative" }}>
           <Header />
           <Outlet />
         </main>
