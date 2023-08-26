@@ -28,12 +28,12 @@ const EditorActions = ({ editor }: { editor: Editor }) => {
         <TextField
           hiddenLabel
           sx={{
-            width: 50,
-            "& .MuiOutlinedInput-input": {
-              "&::-webkit-outer-spin-button, &::-webkit-inner-spin-button": {
-                "-webkit-appearance": "none",
-              },
-            },
+            width: 62,
+            // "& .MuiOutlinedInput-input": {
+            //   "&::-webkit-outer-spin-button, &::-webkit-inner-spin-button": {
+            //     "-webkit-appearance": "none",
+            //   },
+            // },
           }}
           type="number"
           value={editor.getAttributes("textStyle").fontSize || 12}

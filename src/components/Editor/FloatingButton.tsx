@@ -1,3 +1,5 @@
+import { Button, Stack, Typography } from "@mui/material";
+
 interface IFloatingButtonProps {
   title: string;
   description: string;
@@ -14,20 +16,24 @@ const FloatingButton = ({
   alt,
 }: IFloatingButtonProps) => {
   return (
-    <button
-      className="flex items-center gap-2 p-1 rounded min-w-[200px] hover:bg-zinc-600"
-      onClick={onClick}
-    >
-      <img
-        src={image}
-        alt={alt}
-        className="w-12 border border-zinc-600 rounded"
-      />
-      <div className="flex flex-col text-left">
-        <span className="text-sm">{title}</span>
-        <span className="text-xs text-zinc-400">{description}</span>
-      </div>
-    </button>
+    <Button variant="outlined" fullWidth onClick={onClick}>
+      <Stack
+        width={"100%"}
+        display={"flex"}
+        flexDirection={"row"}
+        alignItems={"center"}
+        justifyContent={"start"}
+        gap={1}
+      >
+        <img src={image} alt={alt} style={{ width: 40 }} />
+        <Stack alignItems={"start"} justifyContent={"start"}>
+          <Typography variant="subtitle1">{title}</Typography>
+          <Typography variant="subtitle2" textAlign={"start"}>
+            {description}
+          </Typography>
+        </Stack>
+      </Stack>
+    </Button>
   );
 };
 
