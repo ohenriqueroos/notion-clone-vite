@@ -26,15 +26,15 @@ const HomePage = () => {
       <Typography variant="h6" mt={2} ml={5}>
         {dayTime}, Fulano da Silva
       </Typography>
-      <Box width={"100%"} height={"100%"} mt={5}>
+      <Box width={"100%"} mt={5}>
         <Typography variant="h5">Projetos</Typography>
         <Stack direction={"row"} flexWrap={"wrap"} mt={2} gap={1}>
-          <NavigationCard id="" title="Documento 1" />
-          <NavigationCard id="" title="Documento 2" />
-          <NavigationCard id="" title="Documento 3" />
-          <NavigationCard id="" title="Documento 4" />
-          <NavigationCard id="" title="Documento 5" />
-          <NavigationCard id="" title="Documento 6 nome maior" />
+          <NavigationCard id="1" title="Documento 1" />
+          <NavigationCard id="2" title="Documento 2" />
+          <NavigationCard id="3" title="Documento 3" />
+          <NavigationCard id="4" title="Documento 4" />
+          <NavigationCard id="5" title="Documento 5" />
+          <NavigationCard id="6" title="Documento 6 nome maior" />
         </Stack>
       </Box>
     </>

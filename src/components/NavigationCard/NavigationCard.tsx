@@ -5,7 +5,7 @@ import DescriptionRoundedIcon from "@mui/icons-material/DescriptionRounded";
 
 const NavigationCard = ({ id, title }: { id: string; title: string }) => {
   return (
-    <Link to={id}>
+    <Link to={`document/${id}`} style={{ textDecoration: "none" }}>
       <Tooltip title={title} TransitionComponent={Zoom}>
         <Paper
           elevation={2}
