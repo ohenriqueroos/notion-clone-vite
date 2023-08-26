@@ -1,13 +1,10 @@
-import { Box, Stack } from "@mui/material";
+import { Box } from "@mui/material";
 import Editor from "../components/Editor/Editor";
 
 const DocumentPage = () => (
-  <>
-    <Stack></Stack>
-    <Box mt={5}>
-      <Editor />
-    </Box>
-  </>
+  <Box mt={2}>
+    <Editor />
+  </Box>
 );
 
 export default DocumentPage;
