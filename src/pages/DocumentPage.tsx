@@ -1,7 +1,13 @@
-import { Typography } from "@mui/material";
+import { Box, Stack } from "@mui/material";
+import Editor from "../components/Editor/Editor";
 
-const DocumentPage = () => {
-  return <Typography>Document Page</Typography>;
-};
+const DocumentPage = () => (
+  <>
+    <Stack></Stack>
+    <Box mt={5}>
+      <Editor />
+    </Box>
+  </>
+);
 
 export default DocumentPage;
