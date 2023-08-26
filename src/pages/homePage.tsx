@@ -1,5 +1,7 @@
-import { Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
+
+import NavigationCard from "../components/NavigationCard/NavigationCard";
 
 const HomePage = () => {
   const [dayTime, setDayTime] = useState("");
@@ -20,9 +22,17 @@ const HomePage = () => {
   }, [onSetDayTime]);
 
   return (
-    <Typography variant="h6" mt={2} ml={5}>
-      {dayTime}, Fulano
-    </Typography>
+    <>
+      <Typography variant="h6" mt={2} ml={5}>
+        {dayTime}, Fulano da Silva
+      </Typography>
+      <Box width={"100%"} mt={5}>
+        <Typography variant="h5">Projetos</Typography>
+        <Stack direction={"row"} mt={2}>
+          <NavigationCard id="" title="Documento 1" />
+        </Stack>
+      </Box>
+    </>
   );
 };
 
