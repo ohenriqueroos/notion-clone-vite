@@ -1,4 +1,4 @@
-import { Box, Button, Stack } from "@mui/material";
+import { Box, Button, Stack, TextField } from "@mui/material";
 import { Editor } from "@tiptap/react";
 
 //Icons
@@ -25,6 +25,24 @@ const EditorActions = ({ editor }: { editor: Editor }) => {
       gap={4}
     >
       <Stack direction={"row"} gap={1}>
+        <TextField
+          hiddenLabel
+          sx={{
+            width: 50,
+            "& .MuiOutlinedInput-input": {
+              "&::-webkit-outer-spin-button, &::-webkit-inner-spin-button": {
+                "-webkit-appearance": "none",
+              },
+            },
+          }}
+          type="number"
+          value={editor.getAttributes("textStyle").fontSize || 12}
+          variant="outlined"
+          size="small"
+          onChange={(e) =>
+            editor.chain().focus().setFontSize(e.target.value).run()
+          }
+        />
         <Button
           variant="outlined"
           onClick={() => editor.chain().focus().toggleBold().run()}

@@ -14,6 +14,8 @@ import TableRow from "@tiptap/extension-table-row";
 import "highlight.js/styles/tokyo-night-dark.css";
 import FloatingButton from "./FloatingButton";
 import EditorActions from "./EditorActions";
+import TextStyle from "@tiptap/extension-text-style";
+import { FontSize } from "./Extensions/fontSize";
 
 lowlight.registerLanguage("html", html);
 lowlight.registerLanguage("ts", ts);
@@ -35,6 +37,10 @@ const Editor = () => {
       TableCell,
       Placeholder.configure({
         placeholder: "'/' para abrir o Menu...",
+      }),
+      TextStyle,
+      FontSize.configure({
+        initialFontSize: "12",
       }),
     ],
     editorProps: {
