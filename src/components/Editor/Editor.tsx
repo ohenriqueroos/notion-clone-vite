@@ -76,7 +76,7 @@ const Editor = () => {
   useEffect(() => {
     if (themeSelected) onSetColorHandler("#fff");
     if (!themeSelected) onSetColorHandler("#000");
-  }, [onSetColorHandler]);
+  }, [onSetColorHandler, themeSelected]);
 
   return (
     <>

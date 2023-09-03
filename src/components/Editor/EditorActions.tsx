@@ -47,6 +47,14 @@ const EditorActions = ({ editor }: { editor: Editor }) => {
           variant="outlined"
           onClick={() => editor.chain().focus().toggleBold().run()}
           size="small"
+          sx={(theme) => ({
+            backgroundColor: !editor.isActive("bold")
+              ? theme.palette.secondary.main
+              : theme.palette.primary.main,
+            color: !editor.isActive("bold")
+              ? theme.palette.primary.main
+              : theme.palette.secondary.main,
+          })}
         >
           <FormatBoldIcon fontSize="small" />
         </Button>
@@ -54,6 +62,14 @@ const EditorActions = ({ editor }: { editor: Editor }) => {
           variant="outlined"
           onClick={() => editor.chain().focus().toggleItalic().run()}
           size="small"
+          sx={(theme) => ({
+            backgroundColor: !editor.isActive("italic")
+              ? theme.palette.secondary.main
+              : theme.palette.primary.main,
+            color: !editor.isActive("italic")
+              ? theme.palette.primary.main
+              : theme.palette.secondary.main,
+          })}
         >
           <FormatItalicIcon fontSize="small" />
         </Button>
@@ -61,6 +77,14 @@ const EditorActions = ({ editor }: { editor: Editor }) => {
           variant="outlined"
           onClick={() => editor.chain().focus().toggleStrike().run()}
           size="small"
+          sx={(theme) => ({
+            backgroundColor: !editor.isActive("strike")
+              ? theme.palette.secondary.main
+              : theme.palette.primary.main,
+            color: !editor.isActive("strike")
+              ? theme.palette.primary.main
+              : theme.palette.secondary.main,
+          })}
         >
           <FormatStrikethroughIcon fontSize="small" />
         </Button>
@@ -68,6 +92,14 @@ const EditorActions = ({ editor }: { editor: Editor }) => {
           variant="outlined"
           onClick={() => editor.chain().focus().toggleCodeBlock().run()}
           size="small"
+          sx={(theme) => ({
+            backgroundColor: !editor.isActive("codeBlock")
+              ? theme.palette.secondary.main
+              : theme.palette.primary.main,
+            color: !editor.isActive("codeBlock")
+              ? theme.palette.primary.main
+              : theme.palette.secondary.main,
+          })}
         >
           <CodeIcon fontSize="small" />
         </Button>
