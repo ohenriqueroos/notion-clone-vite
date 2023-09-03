@@ -17,11 +17,18 @@ import EditorActions from "./EditorActions";
 import TextStyle from "@tiptap/extension-text-style";
 import { FontSize } from "./Extensions/fontSize";
 import { Box } from "@mui/material";
+import { Color } from "@tiptap/extension-color";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 lowlight.registerLanguage("html", html);
 lowlight.registerLanguage("ts", ts);
 
 const Editor = () => {
+  const themeSelected = useSelector(
+    (state: { theme: ITheme }) => state.theme.themeMode
+  );
+
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -40,8 +47,10 @@ const Editor = () => {
         placeholder: "'/' para abrir o Menu...",
       }),
       TextStyle,
+      Color,
       FontSize.configure({
         initialFontSize: "12",
+        types: ["textStyle"],
       }),
     ],
     editorProps: {
@@ -59,6 +68,15 @@ const Editor = () => {
       editor.view.focus();
     }
   };
+
+  const onSetColorHandler = (color: string) => {
+    editor?.commands.setColor(color);
+  };
+
+  useEffect(() => {
+    if (themeSelected) onSetColorHandler("#fff");
+    if (!themeSelected) onSetColorHandler("#000");
+  }, [onSetColorHandler]);
 
   return (
     <>
