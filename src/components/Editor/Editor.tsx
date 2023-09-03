@@ -19,6 +19,7 @@ import { Color } from "@tiptap/extension-color";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import FloatingActions from "./FloatingActions";
+import SaveStatus from "./SaveStatus";
 
 lowlight.registerLanguage("html", html);
 lowlight.registerLanguage("ts", ts);
@@ -71,6 +72,7 @@ const Editor = () => {
   return (
     <>
       {editor && <EditorActions editor={editor} />}
+      <SaveStatus />
       <EditorContent
         className="max-w-[700px] mx-auto pt-16 prose prose-invert prose-violet"
         editor={editor}
