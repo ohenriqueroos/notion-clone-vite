@@ -1,4 +1,9 @@
-import { useEditor, EditorContent, FloatingMenu } from "@tiptap/react";
+import {
+  useEditor,
+  EditorContent,
+  FloatingMenu,
+  JSONContent,
+} from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { lowlight } from "lowlight";
 import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
@@ -16,7 +21,7 @@ import EditorActions from "./EditorActions";
 import TextStyle from "@tiptap/extension-text-style";
 import { FontSize } from "./Extensions/fontSize";
 import { Color } from "@tiptap/extension-color";
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import FloatingActions from "./FloatingActions";
 import SaveStatus from "./SaveStatus";
@@ -25,6 +30,7 @@ lowlight.registerLanguage("html", html);
 lowlight.registerLanguage("ts", ts);
 
 const Editor = () => {
+  const [content, setContent] = useState<JSONContent>();
   const themeSelected = useSelector(
     (state: { theme: ITheme }) => state.theme.themeMode
   );
@@ -58,6 +64,11 @@ const Editor = () => {
         class: "outline-none",
       },
     },
+    onBlur({ editor }) {
+      setTimeout(() => {
+        setContent(editor.getJSON());
+      }, 500);
+    },
   });
 
   const onSetColorHandler = (color: string) => {
@@ -68,6 +79,16 @@ const Editor = () => {
     if (themeSelected) onSetColorHandler("#fff");
     if (!themeSelected) onSetColorHandler("#000");
   }, [onSetColorHandler, themeSelected]);
+
+  const onSaveHandler = useCallback(() => {
+    console.log(content);
+  }, [content]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      onSaveHandler();
+    }, 1000);
+  }, [onSaveHandler]);
 
   return (
     <>
